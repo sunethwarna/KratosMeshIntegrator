@@ -74,8 +74,6 @@ public:
         }
     }
 
-    ~TreeNode() = default;
-
     ///@}
     ///@name Public operations
     ///@{
