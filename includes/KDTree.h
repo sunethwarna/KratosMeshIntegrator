@@ -1,17 +1,11 @@
 // System includes
-#include <array>
-#include <iterator>
-#include <stdexcept>
-#include <vector>
-#include <unordered_map>
-#include <set>
 #include <algorithm>
+#include <cmath>
+#include <chrono>
+#include <memory>
 #include <sstream>
 #include <string>
-#include <cmath>
-#include <memory>
 #include <type_traits>
-#include <chrono>
 
 // Project includes
 
@@ -32,8 +26,6 @@ public:
     using Pointer = TreeNodeType const*;
 
     using PositionType = std::result_of_t<decltype(&TPositionGetterFunctor::GetPosition)(const TDataType&)>;
-
-    static IndexType Counter;
 
     ///@}
     ///@name Life cycle
@@ -146,9 +138,7 @@ private:
             return;
         }
 
-        Counter++;
         const double dimensional_distance = GetDimensionalDistance(rPosition);
-        // std::cout << "\ndebug detail: " << this->mData->GetId() << ", dimensional distance = " << dimensional_distance << ", dimension = " << mDimension;
         if (dimensional_distance * dimensional_distance <= DistanceSquare) {
             if (GetDistanceSquare(rPosition) <= DistanceSquare) {
                 rTreeNodes[rNumberOfNeighbours++] = this;
@@ -176,9 +166,6 @@ private:
 
     ///@}
 };
-
-template<unsigned int TDim, class TDataType, class TPositionGetterFunctor>
-std::size_t TreeNode<TDim, TDataType, TPositionGetterFunctor>::Counter = 0;
 
 template<unsigned int TDim, class TDataType, class TPositionGetterFunctor>
 class KDTree

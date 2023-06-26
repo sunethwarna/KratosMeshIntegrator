@@ -182,7 +182,6 @@ int main()
     std::cout <<"\nKDTree neighbours      = " << number_of_neighbours;
     std::cout <<"\nBrute force neighbours = " << brute_force_search_results.size();
     std::cout <<"\nIS CORRECT             = " << (is_correct ? "YES" : "NO");
-    std::cout <<"\nCALL COUNT             = " << k_d_tree_type::TreeNodeType::Counter;
     std::cout <<"\nN                      = " << N << std::endl;
 
     return 0;
